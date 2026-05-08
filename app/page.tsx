@@ -541,7 +541,6 @@ export default function Portfolio() {
         <MagneticButton
         >
           Hire Me
-          Contact me
         </MagneticButton>
       </Section>
     </div>
