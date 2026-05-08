@@ -219,90 +219,272 @@ export default function Portfolio() {
           opacity: heroOpacity,
           y: heroY,
         }}
-        className="h-screen flex flex-col justify-center items-center text-center px-4"
+        className="h-screen flex flex-col justify-center items-center text-center px-6 relative overflow-hidden"
       >
-        <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-pink-400 via-purple-400 to-pink-300 bg-clip-text text-transparent">
-          Ayesha Irfan
-        </h1>
+        {/* background glow */}
+        <div className="absolute w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-pink-500/10 blur-3xl rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 
-        <p className="text-gray-400 mt-6 text-lg md:text-xl max-w-2xl">
-          Full Stack Web Developer crafting modern, animated and scalable web
-          experiences with React, Next.js and Node.js.
-        </p>
+        {/* badge */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="mb-6 px-4 py-2 border border-white/10 bg-white/5 backdrop-blur-xl rounded-full text-sm text-gray-300 z-10"
+        >
+          ✦ Full Stack Web Developer
+        </motion.div>
+
+        {/* name */}
+        <motion.h1
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 1,
+            ease: "easeOut",
+          }}
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight z-10"
+        >
+          <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-pink-300 bg-clip-text text-transparent">
+            Ayesha Irfan
+          </span>
+        </motion.h1>
+
+        {/* animated line */}
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: "120px" }}
+          transition={{
+            delay: 0.5,
+            duration: 0.8,
+          }}
+          className="h-[2px] bg-gradient-to-r from-pink-500 to-purple-500 mt-6 rounded-full z-10"
+        />
+
+        {/* animated description */}
+        <motion.p
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.8,
+            duration: 1,
+          }}
+          className="text-gray-400 mt-8 text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed z-10"
+        >
+          Crafting modern, animated and scalable web experiences with
+          React, Next.js, TypeScript and Node.js.
+        </motion.p>
+
+        {/* animated buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 1,
+            duration: 0.8,
+          }}
+          className="flex flex-col sm:flex-row gap-4 mt-10 z-10"
+        >
+          <motion.a
+            href="#work"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 font-medium"
+          >
+            View Work
+          </motion.a>
+
+          <motion.a
+            href="mailto:irfanayesha215@gmail.com"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-3 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl font-medium"
+          >
+            Contact Me
+          </motion.a>
+        </motion.div>
+
+        {/* floating shapes */}
+        <motion.div
+          animate={{
+            y: [0, -15, 0],
+          }}
+          transition={{
+            repeat: Infinity,
+            duration: 4,
+            ease: "easeInOut",
+          }}
+          className="absolute top-24 left-10 hidden md:block w-20 h-20 rounded-full border border-pink-500/20"
+        />
+
+        <motion.div
+          animate={{
+            y: [0, 20, 0],
+          }}
+          transition={{
+            repeat: Infinity,
+            duration: 5,
+            ease: "easeInOut",
+          }}
+          className="absolute bottom-32 right-10 hidden md:block w-32 h-32 rounded-full border border-purple-500/20"
+        />
       </motion.section>
-
+      {/* ABOUT */}
       {/* ABOUT */}
       <Section id="about">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 gap-12 items-center"
+          className="grid md:grid-cols-2 gap-16 items-center"
         >
-          {/* LEFT */}
-          <div>
-            <p className="text-pink-400 uppercase tracking-[0.3em] text-sm mb-4">
+          {/* LEFT SIDE */}
+          <motion.div
+            initial={{ opacity: 0, x: -80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9 }}
+            viewport={{ once: true }}
+          >
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="text-pink-400 uppercase tracking-[0.3em] text-sm mb-4"
+            >
               About Me
-            </p>
+            </motion.p>
 
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-              Full Stack <br />
-              Web Developer
-            </h2>
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.7 }}
+              className="text-4xl md:text-5xl font-bold leading-tight mb-6"
+            >
+              Building Modern <br />
+              Digital Experiences
+            </motion.h2>
 
-            <p className="text-gray-400 leading-relaxed mb-6">
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: "120px" }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="h-[2px] bg-gradient-to-r from-pink-500 to-purple-500 rounded-full mb-8"
+            />
+
+            <motion.p
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="text-gray-400 leading-relaxed mb-6 text-lg"
+            >
               I'm Ayesha Irfan, a passionate full stack web developer focused on
               building modern, responsive and high-performance web applications.
-              I enjoy creating smooth user experiences, scalable backend systems,
-              and visually engaging interfaces using modern technologies.
-            </p>
+              I enjoy crafting smooth user experiences and scalable backend systems.
+            </motion.p>
 
-            <p className="text-gray-500 leading-relaxed">
-              My expertise includes React, Next.js, Node.js, Express.js,
-              MongoDB, Tailwind CSS, TypeScript and Framer Motion.
-            </p>
-          </div>
+            <motion.p
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
+              className="text-gray-500 leading-relaxed"
+            >
+              My expertise includes React, Next.js, Node.js, MongoDB,
+              TypeScript, Tailwind CSS and Framer Motion.
+            </motion.p>
+          </motion.div>
 
-          {/* RIGHT */}
+          {/* RIGHT SIDE */}
           <motion.div
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.4 }}
+            initial={{ opacity: 0, x: 80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9 }}
+            viewport={{ once: true }}
             className="relative"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-purple-500/20 blur-3xl rounded-full" />
+            {/* glow */}
+            <motion.div
+              animate={{
+                scale: [1, 1.1, 1],
+                opacity: [0.4, 0.7, 0.4],
+              }}
+              transition={{
+                repeat: Infinity,
+                duration: 4,
+                ease: "easeInOut",
+              }}
+              className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-purple-500/20 blur-3xl rounded-full"
+            />
 
-            <div className="relative bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl p-8">
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-lg font-semibold mb-2">Frontend</h3>
+            {/* card */}
+            <motion.div
+              whileHover={{
+                y: -8,
+                scale: 1.02,
+              }}
+              transition={{ duration: 0.3 }}
+              className="relative bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl p-8 overflow-hidden"
+            >
+              {/* floating light */}
+              <motion.div
+                animate={{
+                  x: [-20, 20, -20],
+                  y: [-10, 10, -10],
+                }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 6,
+                  ease: "easeInOut",
+                }}
+                className="absolute top-0 right-0 w-32 h-32 bg-pink-500/10 blur-2xl rounded-full"
+              />
+
+              <div className="space-y-8 relative z-10">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.7 }}
+                >
+                  <h3 className="text-xl font-semibold mb-2">
+                    Frontend
+                  </h3>
 
                   <p className="text-gray-400">
                     React, Next.js, Tailwind CSS, Framer Motion
                   </p>
-                </div>
+                </motion.div>
 
-                <div>
-                  <h3 className="text-lg font-semibold mb-2">Backend</h3>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6, duration: 0.7 }}
+                >
+                  <h3 className="text-xl font-semibold mb-2">
+                    Backend
+                  </h3>
 
                   <p className="text-gray-400">
                     Node.js, Express.js, REST APIs
                   </p>
-                </div>
+                </motion.div>
 
-                <div>
-                  <h3 className="text-lg font-semibold mb-2">Database</h3>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8, duration: 0.7 }}
+                >
+                  <h3 className="text-xl font-semibold mb-2">
+                    Database
+                  </h3>
 
                   <p className="text-gray-400">
                     MongoDB, PostgreSQL, Firebase
                   </p>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </Section>
-
       {/* WORK */}
       <Section id="work">
         <h2 className="text-3xl mb-10 font-bold">Selected Work</h2>
@@ -356,8 +538,10 @@ export default function Portfolio() {
           Let’s build something amazing together.
         </p>
 
-        <MagneticButton>
+        <MagneticButton
+        >
           Hire Me
+          Contact me
         </MagneticButton>
       </Section>
     </div>
