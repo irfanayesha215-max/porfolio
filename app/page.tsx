@@ -71,11 +71,7 @@ function Section({
   id,
   children,
   center = false,
-}: {
-  id: string;
-  children: React.ReactNode;
-  center?: boolean;
-}) {
+}: SectionProps) {
   return (
     <section
       id={id}
