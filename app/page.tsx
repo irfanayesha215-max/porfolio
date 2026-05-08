@@ -67,7 +67,15 @@ const useReducedMotion = () => {
 };
 
 /* ---------------- SECTION ---------------- */
-function Section({ id, children, center = false }: SectionProps) {
+function Section({
+  id,
+  children,
+  center = false,
+}: {
+  id: string;
+  children: React.ReactNode;
+  center?: boolean;
+}) {
   return (
     <section
       id={id}
